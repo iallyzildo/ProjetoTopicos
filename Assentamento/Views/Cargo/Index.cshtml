@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Assentamento.Models.Cargo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    </br>
+    </br>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdCargo }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdCargo }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdCargo })
+        </td>
+    </tr>
+}
+
+</table>

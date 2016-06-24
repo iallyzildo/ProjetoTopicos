@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Assentamento.Models.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    </br>
+    </br>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cnpj)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdEmpresa }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdEmpresa }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdEmpresa })
+        </td>
+    </tr>
+}
+
+</table>
